@@ -1,0 +1,2080 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Eureka
+@_exported import Eureka
+import Foundation
+import Swift
+import UIKit.UIGeometry
+import UIKit
+open class PickerInlineCell<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  override open func update()
+  override open func didSelect()
+  @objc deinit
+}
+open class _PickerInlineRow<T> : Eureka.Row<Eureka.PickerInlineCell<T>>, Eureka.NoValueDisplayTextConformance where T : Swift.Equatable {
+  public typealias InlineRow = Eureka.PickerRow<T>
+  open var options: [T]
+  open var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PickerInlineRow<T> : Eureka._PickerInlineRow<T>, Eureka.RowType, Eureka.InlineRowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  final public func setupInlineRow(_ inlineRow: Eureka.PickerInlineRow<T>.InlineRow)
+  @objc deinit
+}
+open class _DoublePickerInlineRow<A, B> : Eureka.Row<Eureka.PickerInlineCell<Eureka.Tuple<A, B>>>, Eureka.NoValueDisplayTextConformance where A : Swift.Equatable, B : Swift.Equatable {
+  public typealias InlineRow = Eureka.DoublePickerRow<A, B>
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DoublePickerInlineRow<A, B> : Eureka._DoublePickerInlineRow<A, B>, Eureka.RowType, Eureka.InlineRowType where A : Swift.Equatable, B : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  final public func setupInlineRow(_ inlineRow: Eureka.DoublePickerInlineRow<A, B>.InlineRow)
+  @objc deinit
+}
+open class _TriplePickerInlineRow<A, B, C> : Eureka.Row<Eureka.PickerInlineCell<Eureka.Tuple3<A, B, C>>>, Eureka.NoValueDisplayTextConformance where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  public typealias InlineRow = Eureka.TriplePickerRow<A, B, C>
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var thirdOptions: ((A, B) -> [C])
+  open var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TriplePickerInlineRow<A, B, C> : Eureka._TriplePickerInlineRow<A, B, C>, Eureka.RowType, Eureka.InlineRowType where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  final public func setupInlineRow(_ inlineRow: Eureka.TriplePickerInlineRow<A, B, C>.InlineRow)
+  @objc deinit
+}
+open class _PopoverSelectorRow<Cell> : Eureka.SelectorRow<Cell> where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  required public init(tag: Swift.String?)
+  override open func didSelect()
+  @objc deinit
+}
+final public class PopoverSelectorRow<T> : Eureka._PopoverSelectorRow<Eureka.PushSelectorCell<T>>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public protocol SelectableRowType : Eureka.RowType {
+  var selectableValue: Self.Cell.Value? { get set }
+}
+open class SegmentedCell<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc @IBOutlet weak public var segmentedControl: UIKit.UISegmentedControl!
+  @objc @IBOutlet weak public var titleLabel: UIKit.UILabel?
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func awakeFromNib()
+  @objc deinit
+  override open func setup()
+  override open func update()
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @objc override dynamic open func updateConstraints()
+}
+final public class SegmentedRow<T> : Eureka.OptionsRow<Eureka.SegmentedCell<T>>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class LabelCellOf<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+public typealias LabelCell = Eureka.LabelCellOf<Swift.String>
+open class _LabelRow : Eureka.Row<Eureka.LabelCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class LabelRow : Eureka._LabelRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public struct RuleRequired<T> : Eureka.RuleType where T : Swift.Equatable {
+  public init(msg: Swift.String = "Field required!", id: Swift.String? = nil)
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+public protocol AlertOptionsProviderRow : Eureka.OptionsProviderRow {
+  var cancelTitle: Swift.String? { get set }
+}
+open class SelectorAlertController<AlertOptionsRow> : UIKit.UIAlertController, Eureka.TypedRowControllerType where AlertOptionsRow : Eureka.BaseRow, AlertOptionsRow : Eureka.AlertOptionsProviderRow, AlertOptionsRow.Cell.Value == AlertOptionsRow.OptionsProviderType.Option {
+  public var row: Eureka.RowOf<AlertOptionsRow.Cell.Value>!
+  @available(*, deprecated, message: "Use AlertOptionsRow.cancelTitle instead.")
+  public var cancelTitle: Swift.String
+  public var onDismissCallback: ((UIKit.UIViewController) -> Swift.Void)?
+  public var optionsProviderRow: AlertOptionsRow {
+    get
+  }
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  convenience public init(_ callback: ((UIKit.UIViewController) -> Swift.Void)?)
+  @objc override dynamic open func viewDidLoad()
+  @objc deinit
+  public typealias RowValue = AlertOptionsRow.Cell.Value
+}
+public protocol RowControllerType : ObjectiveC.NSObjectProtocol {
+  var onDismissCallback: ((UIKit.UIViewController) -> Swift.Void)? { get set }
+}
+open class _PushRow<Cell> : Eureka.SelectorRow<Cell> where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PushRow<T> : Eureka._PushRow<Eureka.PushSelectorCell<T>>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public protocol InputTypeInitiable {
+  init?(string stringValue: Swift.String)
+}
+public protocol FieldRowConformance : Eureka.FormatterConformance {
+  var titlePercentage: CoreGraphics.CGFloat? { get set }
+  var placeholder: Swift.String? { get set }
+  var placeholderColor: UIKit.UIColor? { get set }
+}
+extension Int : Eureka.InputTypeInitiable {
+  public init?(string stringValue: Swift.String)
+}
+extension Float : Eureka.InputTypeInitiable {
+  public init?(string stringValue: Swift.String)
+}
+extension String : Eureka.InputTypeInitiable {
+  public init?(string stringValue: Swift.String)
+}
+extension URL : Eureka.InputTypeInitiable {
+}
+extension Double : Eureka.InputTypeInitiable {
+  public init?(string stringValue: Swift.String)
+}
+open class FormatteableRow<Cell> : Eureka.Row<Cell>, Eureka.FormatterConformance where Cell : Eureka.BaseCell, Cell : Eureka.CellType, Cell : Eureka.TextInputCell {
+  open var formatter: Foundation.Formatter?
+  open var useFormatterDuringInput: Swift.Bool
+  open var useFormatterOnDidBeginEditing: Swift.Bool?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class FieldRow<Cell> : Eureka.FormatteableRow<Cell>, Eureka.FieldRowConformance, Eureka.KeyboardReturnHandler where Cell : Eureka.BaseCell, Cell : Eureka.CellType, Cell : Eureka.TextFieldCell {
+  open var keyboardReturnType: Eureka.KeyboardReturnTypeConfiguration?
+  @available(*, deprecated, message: "Use titlePercentage instead")
+  open var textFieldPercentage: CoreGraphics.CGFloat? {
+    get
+    set
+  }
+  open var titlePercentage: CoreGraphics.CGFloat?
+  open var placeholder: Swift.String?
+  open var placeholderColor: UIKit.UIColor?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public protocol TextInputCell {
+  var textInput: UIKit.UITextInput { get }
+}
+public protocol TextFieldCell : Eureka.TextInputCell {
+  var textField: UIKit.UITextField! { get }
+}
+extension TextFieldCell {
+  public var textInput: UIKit.UITextInput {
+    get
+  }
+}
+open class _FieldCell<T> : Eureka.Cell<T>, UIKit.UITextFieldDelegate, Eureka.TextFieldCell where T : Eureka.InputTypeInitiable, T : Swift.Equatable {
+  @objc @IBOutlet weak public var textField: UIKit.UITextField!
+  @objc @IBOutlet weak public var titleLabel: UIKit.UILabel?
+  open var dynamicConstraints: [UIKit.NSLayoutConstraint]
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func awakeFromNib()
+  @objc deinit
+  override open func setup()
+  override open func update()
+  override open func cellCanBecomeFirstResponder() -> Swift.Bool
+  override open func cellBecomeFirstResponder(withDirection: Eureka.Direction) -> Swift.Bool
+  override open func cellResignFirstResponder() -> Swift.Bool
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  open func customConstraints()
+  @objc override dynamic open func updateConstraints()
+  @objc open func textFieldDidChange(_ textField: UIKit.UITextField)
+  @objc open func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc open func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @objc open func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc open func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @objc open func textFieldShouldBeginEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc open func textFieldShouldClear(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc open func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc override dynamic open func layoutSubviews()
+}
+public protocol OptionsProviderRow : Eureka.TypedRowType {
+  associatedtype OptionsProviderType : Eureka.OptionsProviderConformance
+  var optionsProvider: Self.OptionsProviderType? { get set }
+  var cachedOptionsData: [Self.OptionsProviderType.Option]? { get set }
+}
+extension OptionsProviderRow where Self : Eureka.BaseRow {
+  public var options: [Self.OptionsProviderType.Option]? {
+    get
+    set(newValue)
+  }
+  public var cachedOptionsData: [Self.OptionsProviderType.Option]? {
+    get
+    set
+  }
+}
+public protocol OptionsProviderConformance : Swift.ExpressibleByArrayLiteral {
+  associatedtype Option : Swift.Equatable
+  init(array: [Self.Option]?)
+  func options(for selectorViewController: Eureka.FormViewController, completion: @escaping ([Self.Option]?) -> Swift.Void)
+  var optionsArray: [Self.Option]? { get }
+}
+public enum OptionsProvider<T> : Eureka.OptionsProviderConformance where T : Swift.Equatable {
+  case array([T]?)
+  case lazy((Eureka.FormViewController, ([T]?) -> Swift.Void) -> Swift.Void)
+  public init(array: [T]?)
+  public init(arrayLiteral elements: T...)
+  public func options(for selectorViewController: Eureka.FormViewController, completion: @escaping ([T]?) -> Swift.Void)
+  public var optionsArray: [T]? {
+    get
+  }
+  public typealias Option = T
+  public typealias ArrayLiteralElement = T
+}
+open class _SelectorViewController<Row, OptionsRow> : Eureka.FormViewController, Eureka.TypedRowControllerType where Row : Eureka.BaseRow, Row : Eureka.SelectableRowType, OptionsRow : Eureka.OptionsProviderRow, Row.Cell.Value == OptionsRow.OptionsProviderType.Option {
+  public var row: Eureka.RowOf<Row.Cell.Value>!
+  public var enableDeselection: Swift.Bool
+  public var dismissOnSelection: Swift.Bool
+  public var dismissOnChange: Swift.Bool
+  public var selectableRowSetup: ((Row) -> Swift.Void)?
+  public var selectableRowCellUpdate: ((Row.Cell, Row) -> Swift.Void)?
+  public var selectableRowCellSetup: ((Row.Cell, Row) -> Swift.Void)?
+  public var onDismissCallback: ((UIKit.UIViewController) -> Swift.Void)?
+  public var sectionKeyForValue: ((Row.Cell.Value) -> (Swift.String))?
+  public var sectionHeaderTitleForKey: ((Swift.String) -> Swift.String?)?
+  public var sectionFooterTitleForKey: ((Swift.String) -> Swift.String?)?
+  public var optionsProviderRow: OptionsRow {
+    get
+  }
+  override public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  convenience public init(_ callback: ((UIKit.UIViewController) -> Swift.Void)?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  open func setupForm()
+  open func setupForm(with options: [Row.Cell.Value])
+  @objc deinit
+  public typealias RowValue = Row.Cell.Value
+}
+open class SelectorViewController<OptionsRow> : Eureka._SelectorViewController<Eureka.ListCheckRow<OptionsRow.OptionsProviderType.Option>, OptionsRow> where OptionsRow : Eureka.OptionsProviderRow {
+  override public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc open class DecimalFormatter : Foundation.NumberFormatter, Eureka.FormatterProtocol {
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func getObjectValue(_ obj: Swift.AutoreleasingUnsafeMutablePointer<Swift.AnyObject?>?, for string: Swift.String, range rangep: Swift.UnsafeMutablePointer<Foundation.NSRange>?) throws
+  open func getNewPosition(forPosition position: UIKit.UITextPosition, inTextInput textInput: UIKit.UITextInput, oldValue: Swift.String?, newValue: Swift.String?) -> UIKit.UITextPosition
+  @objc deinit
+}
+public struct ValidationError : Swift.Equatable {
+  public let msg: Swift.String
+  public init(msg: Swift.String)
+}
+public func == (lhs: Eureka.ValidationError, rhs: Eureka.ValidationError) -> Swift.Bool
+public protocol BaseRuleType {
+  var id: Swift.String? { get set }
+  var validationError: Eureka.ValidationError { get set }
+}
+public protocol RuleType : Eureka.BaseRuleType {
+  associatedtype RowValueType
+  func isValid(value: Self.RowValueType?) -> Eureka.ValidationError?
+}
+public struct ValidationOptions : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let validatesOnDemand: Eureka.ValidationOptions
+  public static let validatesOnChange: Eureka.ValidationOptions
+  public static let validatesOnBlur: Eureka.ValidationOptions
+  public static let validatesOnChangeAfterBlurred: Eureka.ValidationOptions
+  public static let validatesAlways: Eureka.ValidationOptions
+  public typealias Element = Eureka.ValidationOptions
+  public typealias ArrayLiteralElement = Eureka.ValidationOptions
+  public typealias RawValue = Swift.Int
+}
+public struct ValidationRuleHelper<T> where T : Swift.Equatable {
+}
+public struct RuleSet<T> where T : Swift.Equatable {
+  public init()
+  mutating public func add<Rule>(rule: Rule) where T == Rule.RowValueType, Rule : Eureka.RuleType
+  mutating public func remove(ruleWithIdentifier identifier: Swift.String)
+  mutating public func removeAllRules()
+}
+public struct CellProvider<Cell> where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  public var nibName: Swift.String? {
+    get
+    }
+  public var bundle: Foundation.Bundle! {
+    get
+    }
+  public init()
+  public init(nibName: Swift.String, bundle: Foundation.Bundle? = nil)
+}
+public enum ControllerProvider<VCType> where VCType : UIKit.UIViewController {
+  case callback(builder: (() -> VCType))
+  case nibFile(name: Swift.String, bundle: Foundation.Bundle?)
+  case storyBoard(storyboardId: Swift.String, storyboardName: Swift.String, bundle: Foundation.Bundle?)
+}
+public enum PresentationMode<VCType> where VCType : UIKit.UIViewController {
+  case show(controllerProvider: Eureka.ControllerProvider<VCType>, onDismiss: ((UIKit.UIViewController) -> Swift.Void)?)
+  case presentModally(controllerProvider: Eureka.ControllerProvider<VCType>, onDismiss: ((UIKit.UIViewController) -> Swift.Void)?)
+  case segueName(segueName: Swift.String, onDismiss: ((UIKit.UIViewController) -> Swift.Void)?)
+  case segueClass(segueClass: UIKit.UIStoryboardSegue.Type, onDismiss: ((UIKit.UIViewController) -> Swift.Void)?)
+  case popover(controllerProvider: Eureka.ControllerProvider<VCType>, onDismiss: ((UIKit.UIViewController) -> Swift.Void)?)
+  public var onDismissCallback: ((UIKit.UIViewController) -> Swift.Void)? {
+    get
+  }
+  public func present(_ viewController: VCType!, row: Eureka.BaseRow, presentingController: Eureka.FormViewController)
+  public func makeController() -> VCType?
+}
+public protocol FormatterProtocol {
+  func getNewPosition(forPosition: UIKit.UITextPosition, inTextInput textInput: UIKit.UITextInput, oldValue: Swift.String?, newValue: Swift.String?) -> UIKit.UITextPosition
+}
+public enum Condition {
+  case function([Swift.String], (Eureka.Form) -> Swift.Bool)
+  case predicate(Foundation.NSPredicate)
+}
+extension Condition : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.Bool)
+  public typealias BooleanLiteralType = Swift.Bool
+}
+extension Condition : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.String)
+  public init(unicodeScalarLiteral value: Swift.String)
+  public init(extendedGraphemeClusterLiteral value: Swift.String)
+  public typealias StringLiteralType = Swift.String
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  public typealias UnicodeScalarLiteralType = Swift.String
+}
+public enum EurekaError : Swift.Error {
+  case duplicatedTag(tag: Swift.String)
+  case rowNotInSection(row: Eureka.BaseRow)
+}
+public protocol FormViewControllerProtocol {
+  var tableView: UIKit.UITableView! { get }
+  func beginEditing<T>(of: Eureka.Cell<T>) where T : Swift.Equatable
+  func endEditing<T>(of: Eureka.Cell<T>) where T : Swift.Equatable
+  func insertAnimation(forRows rows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  func deleteAnimation(forRows rows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  func reloadAnimation(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  func insertAnimation(forSections sections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+  func deleteAnimation(forSections sections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+  func reloadAnimation(oldSections: [Eureka.Section], newSections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+}
+public struct RowNavigationOptions : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let Disabled: Eureka.RowNavigationOptions
+  public static let Enabled: Eureka.RowNavigationOptions
+  public static let StopDisabledRow: Eureka.RowNavigationOptions
+  public static let SkipCanNotBecomeFirstResponderRow: Eureka.RowNavigationOptions
+  public typealias Element = Eureka.RowNavigationOptions
+  public typealias ArrayLiteralElement = Eureka.RowNavigationOptions
+  public typealias RawValue = Swift.Int
+}
+public struct KeyboardReturnTypeConfiguration {
+  public var nextKeyboardType: UIKit.UIReturnKeyType
+  public var defaultKeyboardType: UIKit.UIReturnKeyType
+  public init()
+  public init(nextKeyboardType: UIKit.UIReturnKeyType, defaultKeyboardType: UIKit.UIReturnKeyType)
+}
+public struct InlineRowHideOptions : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let Never: Eureka.InlineRowHideOptions
+  public static let AnotherInlineRowIsShown: Eureka.InlineRowHideOptions
+  public static let FirstResponderChanges: Eureka.InlineRowHideOptions
+  public typealias Element = Eureka.InlineRowHideOptions
+  public typealias ArrayLiteralElement = Eureka.InlineRowHideOptions
+  public typealias RawValue = Swift.Int
+}
+@objc open class FormViewController : UIKit.UIViewController, Eureka.FormViewControllerProtocol, Eureka.FormDelegate {
+  @objc @IBOutlet public var tableView: UIKit.UITableView!
+  public var form: Eureka.Form {
+    get
+    set
+  }
+  open var rowKeyboardSpacing: CoreGraphics.CGFloat
+  open var animateScroll: Swift.Bool
+  open var customNavigationAccessoryView: (UIKit.UIView & Eureka.NavigationAccessory)? {
+    get
+  }
+  public var navigationOptions: Eureka.RowNavigationOptions?
+  public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic open func prepare(for segue: UIKit.UIStoryboardSegue, sender: Any?)
+  open func inputAccessoryView(for row: Eureka.BaseRow) -> UIKit.UIView?
+  final public func beginEditing<T>(of cell: Eureka.Cell<T>) where T : Swift.Equatable
+  final public func endEditing<T>(of cell: Eureka.Cell<T>) where T : Swift.Equatable
+  open func insertAnimation(forRows rows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  open func deleteAnimation(forRows rows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  open func reloadAnimation(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow]) -> UIKit.UITableView.RowAnimation
+  open func insertAnimation(forSections sections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+  open func deleteAnimation(forSections sections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+  open func reloadAnimation(oldSections: [Eureka.Section], newSections: [Eureka.Section]) -> UIKit.UITableView.RowAnimation
+  open func textInputShouldBeginEditing<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) -> Swift.Bool where T : Swift.Equatable
+  open func textInputDidBeginEditing<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) where T : Swift.Equatable
+  open func textInputShouldEndEditing<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) -> Swift.Bool where T : Swift.Equatable
+  open func textInputDidEndEditing<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) where T : Swift.Equatable
+  open func textInput<T>(_ textInput: UIKit.UITextInput, shouldChangeCharactersInRange range: Foundation.NSRange, replacementString string: Swift.String, cell: Eureka.Cell<T>) -> Swift.Bool where T : Swift.Equatable
+  open func textInputShouldClear<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) -> Swift.Bool where T : Swift.Equatable
+  open func textInputShouldReturn<T>(_ textInput: UIKit.UITextInput, cell: Eureka.Cell<T>) -> Swift.Bool where T : Swift.Equatable
+  open func valueHasBeenChanged(for: Eureka.BaseRow, oldValue: Any?, newValue: Any?)
+  @objc open func tableView(_ tableView: UIKit.UITableView, willBeginReorderingRowAtIndexPath indexPath: Foundation.IndexPath)
+  open func sectionsHaveBeenAdded(_ sections: [Eureka.Section], at indexes: Foundation.IndexSet)
+  open func sectionsHaveBeenRemoved(_ sections: [Eureka.Section], at indexes: Foundation.IndexSet)
+  open func sectionsHaveBeenReplaced(oldSections: [Eureka.Section], newSections: [Eureka.Section], at indexes: Foundation.IndexSet)
+  open func rowsHaveBeenAdded(_ rows: [Eureka.BaseRow], at indexes: [Foundation.IndexPath])
+  open func rowsHaveBeenRemoved(_ rows: [Eureka.BaseRow], at indexes: [Foundation.IndexPath])
+  open func rowsHaveBeenReplaced(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow], at indexes: [Foundation.IndexPath])
+  @objc deinit
+}
+extension FormViewController : UIKit.UITableViewDelegate {
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, estimatedHeightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, canEditRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, commit editingStyle: UIKit.UITableViewCell.EditingStyle, forRowAt indexPath: Foundation.IndexPath)
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, canMoveRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: Foundation.IndexPath, toProposedIndexPath proposedDestinationIndexPath: Foundation.IndexPath) -> Foundation.IndexPath
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, moveRowAt sourceIndexPath: Foundation.IndexPath, to destinationIndexPath: Foundation.IndexPath)
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, editingStyleForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell.EditingStyle
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, shouldIndentWhileEditingRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
+  @available(iOS 11, *)
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: Foundation.IndexPath) -> UIKit.UISwipeActionsConfiguration?
+  @available(iOS 11, *)
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: Foundation.IndexPath) -> UIKit.UISwipeActionsConfiguration?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, editActionsForRowAt indexPath: Foundation.IndexPath) -> [UIKit.UITableViewRowAction]?
+}
+extension FormViewController : UIKit.UITableViewDataSource {
+  @objc dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, titleForFooterInSection section: Swift.Int) -> Swift.String?
+  @objc dynamic open func sectionIndexTitles(for tableView: UIKit.UITableView) -> [Swift.String]?
+  @objc dynamic open func tableView(_ tableView: UIKit.UITableView, sectionForSectionIndexTitle title: Swift.String, at index: Swift.Int) -> Swift.Int
+}
+extension FormViewController : UIKit.UIScrollViewDelegate {
+  @objc dynamic open func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+}
+extension FormViewController {
+  @objc dynamic open func keyboardWillShow(_ notification: Foundation.Notification)
+  @objc dynamic open func keyboardWillHide(_ notification: Foundation.Notification)
+}
+public enum Direction {
+  case up, down
+  public static func == (a: Eureka.Direction, b: Eureka.Direction) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension FormViewController {
+  public func navigateTo(direction: Eureka.Direction)
+}
+public protocol FormDelegate : AnyObject {
+  func sectionsHaveBeenAdded(_ sections: [Eureka.Section], at: Foundation.IndexSet)
+  func sectionsHaveBeenRemoved(_ sections: [Eureka.Section], at: Foundation.IndexSet)
+  func sectionsHaveBeenReplaced(oldSections: [Eureka.Section], newSections: [Eureka.Section], at: Foundation.IndexSet)
+  func rowsHaveBeenAdded(_ rows: [Eureka.BaseRow], at: [Foundation.IndexPath])
+  func rowsHaveBeenRemoved(_ rows: [Eureka.BaseRow], at: [Foundation.IndexPath])
+  func rowsHaveBeenReplaced(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow], at: [Foundation.IndexPath])
+  func valueHasBeenChanged(for row: Eureka.BaseRow, oldValue: Any?, newValue: Any?)
+}
+final public class Form {
+  public static var defaultNavigationOptions: Eureka.RowNavigationOptions
+  public static var defaultInlineRowHideOptions: Eureka.InlineRowHideOptions
+  final public var inlineRowHideOptions: Eureka.InlineRowHideOptions?
+  public static var defaultKeyboardReturnType: Eureka.KeyboardReturnTypeConfiguration
+  final public var keyboardReturnType: Eureka.KeyboardReturnTypeConfiguration?
+  weak final public var delegate: Eureka.FormDelegate?
+  public init()
+  final public subscript(indexPath: Foundation.IndexPath) -> Eureka.BaseRow {
+    get
+  }
+  final public func rowBy<T>(tag: Swift.String) -> Eureka.RowOf<T>? where T : Swift.Equatable
+  final public func rowBy<Row>(tag: Swift.String) -> Row? where Row : Eureka.RowType
+  final public func rowBy(tag: Swift.String) -> Eureka.BaseRow?
+  final public func sectionBy(tag: Swift.String) -> Eureka.Section?
+  final public func values(includeHidden: Swift.Bool = false) -> [Swift.String : Any?]
+  final public func setValues(_ values: [Swift.String : Any?])
+  final public var rows: [Eureka.BaseRow] {
+    get
+  }
+  final public var allRows: [Eureka.BaseRow] {
+    get
+  }
+  final public var allSections: [Eureka.Section] {
+    get
+  }
+  final public func hideInlineRows()
+  @objc deinit
+}
+extension Form : Swift.Collection {
+  final public var startIndex: Swift.Int {
+    get
+  }
+  final public var endIndex: Swift.Int {
+    get
+  }
+  public typealias Element = Eureka.Section
+  public typealias Index = Swift.Int
+  public typealias Iterator = Swift.IndexingIterator<Eureka.Form>
+  public typealias SubSequence = Swift.Slice<Eureka.Form>
+  public typealias Indices = Swift.DefaultIndices<Eureka.Form>
+}
+extension Form : Swift.MutableCollection {
+  final public subscript(position: Swift.Int) -> Eureka.Section {
+    get
+    set
+  }
+  final public func index(after i: Swift.Int) -> Swift.Int
+  final public func index(before i: Swift.Int) -> Swift.Int
+  final public var last: Eureka.Section? {
+    get
+  }
+}
+extension Form : Swift.RangeReplaceableCollection {
+  final public func append(_ formSection: Eureka.Section)
+  final public func append<S>(contentsOf newElements: S) where S : Swift.Sequence, S.Element == Eureka.Section
+  final public func replaceSubrange<C>(_ subRange: Swift.Range<Swift.Int>, with newElements: C) where C : Swift.Collection, C.Element == Eureka.Section
+  final public func removeAll(keepingCapacity keepCapacity: Swift.Bool = false)
+}
+extension Form {
+  @discardableResult
+  final public func validate(includeHidden: Swift.Bool = false, includeDisabled: Swift.Bool = true, quietly: Swift.Bool = false) -> [Eureka.ValidationError]
+  final public func cleanValidationErrors()
+}
+public struct RuleClosure<T> : Eureka.RuleType where T : Swift.Equatable {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public var closure: (T?) -> Eureka.ValidationError?
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public init(validationError: Eureka.ValidationError = ValidationError(msg: "Field validation fails.."), id: Swift.String? = nil, closure: @escaping ((T?) -> Eureka.ValidationError?))
+  public typealias RowValueType = T
+}
+@_staticInitializeObjCMetadata
+open class SwitchCell : Eureka.Cell<Swift.Bool>, Eureka.CellType {
+  @objc @IBOutlet weak public var switchControl: UIKit.UISwitch!
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+  override open func update()
+}
+open class _SwitchRow : Eureka.Row<Eureka.SwitchCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class SwitchRow : Eureka._SwitchRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _PickerInputCell<T> : Eureka.Cell<T>, Eureka.CellType, UIKit.UIPickerViewDataSource, UIKit.UIPickerViewDelegate where T : Swift.Equatable {
+  public var picker: UIKit.UIPickerView {
+    get
+    set
+  }
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+  override open func update()
+  override open func didSelect()
+  @objc override dynamic open var inputView: UIKit.UIView? {
+    @objc get
+  }
+  override open func cellCanBecomeFirstResponder() -> Swift.Bool
+  @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @objc open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow rowNumber: Swift.Int, inComponent component: Swift.Int)
+}
+open class PickerInputCell<T> : Eureka._PickerInputCell<T> where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc deinit
+}
+open class _PickerInputRow<T> : Eureka.Row<Eureka.PickerInputCell<T>>, Eureka.NoValueDisplayTextConformance where T : Swift.Equatable {
+  open var noValueDisplayText: Swift.String?
+  open var options: [T]
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PickerInputRow<T> : Eureka._PickerInputRow<T>, Eureka.RowType where T : Eureka.InputTypeInitiable, T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public struct RuleMinLength : Eureka.RuleType {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(minLength: Swift.UInt, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: Swift.String?) -> Eureka.ValidationError?
+  public typealias RowValueType = Swift.String
+}
+public struct RuleMaxLength : Eureka.RuleType {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(maxLength: Swift.UInt, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: Swift.String?) -> Eureka.ValidationError?
+  public typealias RowValueType = Swift.String
+}
+public struct RuleExactLength : Eureka.RuleType {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(exactLength: Swift.UInt, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: Swift.String?) -> Eureka.ValidationError?
+  public typealias RowValueType = Swift.String
+}
+public struct Tuple<A, B> where A : Swift.Equatable, B : Swift.Equatable {
+  public let a: A
+  public let b: B
+  public init(a: A, b: B)
+}
+extension Tuple : Swift.Equatable {
+}
+public func == <A, B>(lhs: Eureka.Tuple<A, B>, rhs: Eureka.Tuple<A, B>) -> Swift.Bool where A : Swift.Equatable, B : Swift.Equatable
+open class DoublePickerCell<A, B> : Eureka._PickerCell<Eureka.Tuple<A, B>> where A : Swift.Equatable, B : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc override open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc deinit
+}
+open class _DoublePickerRow<A, B> : Eureka.Row<Eureka.DoublePickerCell<A, B>> where A : Swift.Equatable, B : Swift.Equatable {
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var displayValueForFirstRow: ((A) -> (Swift.String))
+  public var displayValueForSecondRow: ((B) -> (Swift.String))
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DoublePickerRow<A, B> : Eureka._DoublePickerRow<A, B>, Eureka.RowType where A : Swift.Equatable, B : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _MultipleSelectorRow<T, Cell> : Eureka.GenericMultipleSelectorRow<T, Cell> where T : Swift.Hashable, Cell : Eureka.BaseCell, Cell : Eureka.CellType, Cell.Value == Swift.Set<T> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class MultipleSelectorRow<T> : Eureka._MultipleSelectorRow<T, Eureka.PushSelectorCell<Swift.Set<T>>>, Eureka.RowType where T : Swift.Hashable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _AlertRow<Cell> : Eureka.AlertOptionsRow<Cell>, Eureka.PresenterRowType where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  public typealias PresentedController = Eureka.SelectorAlertController<Eureka._AlertRow<Cell>>
+  open var onPresentCallback: ((Eureka.FormViewController, Eureka._AlertRow<Cell>.PresentedController) -> Swift.Void)?
+  open var presentationMode: Eureka.PresentationMode<Eureka.SelectorAlertController<Eureka._AlertRow<Cell>>>? {
+    get
+    set
+  }
+  required public init(tag: Swift.String?)
+  override open func customDidSelect()
+  @objc deinit
+  public typealias PresentedControllerType = Eureka.SelectorAlertController<Eureka._AlertRow<Cell>>
+}
+final public class AlertRow<T> : Eureka._AlertRow<Eureka.AlertSelectorCell<T>>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class AlertSelectorCell<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  override open func didSelect()
+  @objc deinit
+}
+open class _ActionSheetRow<Cell> : Eureka.AlertOptionsRow<Cell>, Eureka.PresenterRowType where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  public typealias ProviderType = Eureka.SelectorAlertController<Eureka._ActionSheetRow<Cell>>
+  public var onPresentCallback: ((Eureka.FormViewController, Eureka._ActionSheetRow<Cell>.ProviderType) -> Swift.Void)?
+  public var presentationMode: Eureka.PresentationMode<Eureka.SelectorAlertController<Eureka._ActionSheetRow<Cell>>>? {
+    get
+    set
+  }
+  required public init(tag: Swift.String?)
+  override open func customDidSelect()
+  @objc deinit
+  public typealias PresentedControllerType = Eureka.SelectorAlertController<Eureka._ActionSheetRow<Cell>>
+}
+final public class ActionSheetRow<T> : Eureka._ActionSheetRow<Eureka.AlertSelectorCell<T>>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public protocol PresenterRowType : Eureka.TypedRowType {
+  associatedtype PresentedControllerType : UIKit.UIViewController, Eureka.TypedRowControllerType
+  var presentationMode: Eureka.PresentationMode<Self.PresentedControllerType>? { get set }
+  var onPresentCallback: ((Eureka.FormViewController, Self.PresentedControllerType) -> Swift.Void)? { get set }
+}
+extension PresenterRowType {
+  @discardableResult
+  public func onPresent(_ callback: ((Eureka.FormViewController, Self.PresentedControllerType) -> Swift.Void)?) -> Self
+}
+public enum TextAreaHeight {
+  case fixed(cellHeight: CoreGraphics.CGFloat)
+  case dynamic(initialTextViewHeight: CoreGraphics.CGFloat)
+}
+public enum TextAreaMode {
+  case normal
+  case readOnly
+  public static func == (a: Eureka.TextAreaMode, b: Eureka.TextAreaMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol AreaCell : Eureka.TextInputCell {
+  var textView: UIKit.UITextView! { get }
+}
+extension AreaCell {
+  public var textInput: UIKit.UITextInput {
+    get
+  }
+}
+open class _TextAreaCell<T> : Eureka.Cell<T>, UIKit.UITextViewDelegate, Eureka.AreaCell where T : Eureka.InputTypeInitiable, T : Swift.Equatable {
+  @objc @IBOutlet weak public var textView: UIKit.UITextView!
+  @objc @IBOutlet weak public var placeholderLabel: UIKit.UILabel?
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func awakeFromNib()
+  open var dynamicConstraints: [UIKit.NSLayoutConstraint]
+  override open func setup()
+  @objc deinit
+  override open func update()
+  override open func cellCanBecomeFirstResponder() -> Swift.Bool
+  override open func cellBecomeFirstResponder(withDirection: Eureka.Direction) -> Swift.Bool
+  override open func cellResignFirstResponder() -> Swift.Bool
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @objc open func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @objc open func textViewDidEndEditing(_ textView: UIKit.UITextView)
+  @objc open func textViewDidChange(_ textView: UIKit.UITextView)
+  @objc open func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc open func textViewShouldBeginEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc open func textViewShouldEndEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc override dynamic open func updateConstraints()
+  open func customConstraints()
+}
+@_staticInitializeObjCMetadata
+open class TextAreaCell : Eureka._TextAreaCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+open class AreaRow<Cell> : Eureka.FormatteableRow<Cell> where Cell : Eureka.BaseCell, Cell : Eureka.AreaCell, Cell : Eureka.CellType {
+  open var placeholder: Swift.String?
+  open var textAreaHeight: Eureka.TextAreaHeight
+  open var textAreaMode: Eureka.TextAreaMode
+  open var titlePercentage: CoreGraphics.CGFloat?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _TextAreaRow : Eureka.AreaRow<Eureka.TextAreaCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TextAreaRow : Eureka._TextAreaRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+@objc open class BaseCell : UIKit.UITableViewCell, Eureka.BaseCellType {
+  public var baseRow: Eureka.BaseRow! {
+    get
+  }
+  public var height: (() -> CoreGraphics.CGFloat)?
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc required override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  public func formViewController() -> Eureka.FormViewController?
+  open func setup()
+  open func update()
+  open func didSelect()
+  open func cellCanBecomeFirstResponder() -> Swift.Bool
+  @discardableResult
+  open func cellBecomeFirstResponder(withDirection: Eureka.Direction = .down) -> Swift.Bool
+  @discardableResult
+  open func cellResignFirstResponder() -> Swift.Bool
+  @objc deinit
+}
+open class Cell<T> : Eureka.BaseCell, Eureka.TypedCellType where T : Swift.Equatable {
+  public typealias Value = T
+  weak public var row: Eureka.RowOf<T>!
+  @objc override dynamic open var inputAccessoryView: UIKit.UIView? {
+    @objc get
+  }
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  override open func setup()
+  override open func update()
+  override open func didSelect()
+  @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic open func becomeFirstResponder() -> Swift.Bool
+  @objc override dynamic open func resignFirstResponder() -> Swift.Bool
+  @objc override dynamic open func tintColorDidChange()
+  override public var baseRow: Eureka.BaseRow! {
+    get
+  }
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class DatePickerCell : Eureka.Cell<Foundation.Date>, Eureka.CellType {
+  @objc @IBOutlet weak public var datePicker: UIKit.UIDatePicker!
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+  override open func update()
+}
+open class _DatePickerRow : Eureka.Row<Eureka.DatePickerCell>, Eureka.DatePickerRowProtocol {
+  open var minimumDate: Foundation.Date?
+  open var maximumDate: Foundation.Date?
+  open var minuteInterval: Swift.Int?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DatePickerRow : Eureka._DatePickerRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TimePickerRow : Eureka._DatePickerRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DateTimePickerRow : Eureka._DatePickerRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class CountDownPickerRow : Eureka._DatePickerRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public struct RuleEqualsToRow<T> : Eureka.RuleType where T : Swift.Equatable {
+  public init(form: Eureka.Form, tag: Swift.String, msg: Swift.String = "Fields don't match!", id: Swift.String? = nil)
+  public init(row: Eureka.RowOf<T>, msg: Swift.String = "Fields don't match!", id: Swift.String? = nil)
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  weak public var form: Eureka.Form?
+  public var tag: Swift.String?
+  weak public var row: Eureka.RowOf<T>?
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+public protocol BaseCellType : AnyObject {
+  var height: (() -> CoreGraphics.CGFloat)? { get }
+  func setup()
+  func update()
+  func didSelect()
+  func cellCanBecomeFirstResponder() -> Swift.Bool
+  func cellBecomeFirstResponder(withDirection: Eureka.Direction) -> Swift.Bool
+  func cellResignFirstResponder() -> Swift.Bool
+  func formViewController() -> Eureka.FormViewController?
+}
+public protocol TypedCellType : Eureka.BaseCellType {
+  associatedtype Value : Swift.Equatable
+  var row: Eureka.RowOf<Self.Value>! { get set }
+}
+public protocol CellType : Eureka.TypedCellType {
+}
+open class DoublePickerInputCell<A, B> : Eureka._PickerInputCell<Eureka.Tuple<A, B>> where A : Swift.Equatable, B : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc override open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc deinit
+}
+open class _DoublePickerInputRow<A, B> : Eureka.Row<Eureka.DoublePickerInputCell<A, B>>, Eureka.NoValueDisplayTextConformance where A : Swift.Equatable, B : Swift.Equatable {
+  open var noValueDisplayText: Swift.String?
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var displayValueForFirstRow: ((A) -> (Swift.String))
+  public var displayValueForSecondRow: ((B) -> (Swift.String))
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DoublePickerInputRow<A, B> : Eureka._DoublePickerInputRow<A, B>, Eureka.RowType where A : Swift.Equatable, B : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _PickerCell<T> : Eureka.Cell<T>, Eureka.CellType, UIKit.UIPickerViewDataSource, UIKit.UIPickerViewDelegate where T : Swift.Equatable {
+  @objc @IBOutlet weak public var picker: UIKit.UIPickerView!
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  override open func update()
+  @objc deinit
+  open var pickerTextAttributes: [Foundation.NSAttributedString.Key : Any]?
+  @objc open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc open func pickerView(_ pickerView: UIKit.UIPickerView, attributedTitleForRow row: Swift.Int, forComponent component: Swift.Int) -> Foundation.NSAttributedString?
+}
+open class PickerCell<T> : Eureka._PickerCell<T> where T : Swift.Equatable {
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  override open func update()
+  @objc deinit
+}
+open class _PickerRow<T> : Eureka.Row<Eureka.PickerCell<T>> where T : Swift.Equatable {
+  open var options: [T]
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PickerRow<T> : Eureka._PickerRow<T>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class TextCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class IntCell : Eureka._FieldCell<Swift.Int>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class PhoneCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class NameCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class EmailCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class PasswordCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class DecimalCell : Eureka._FieldCell<Swift.Double>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class URLCell : Eureka._FieldCell<Foundation.URL>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class TwitterCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class AccountCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class ZipCodeCell : Eureka._FieldCell<Swift.String>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc deinit
+}
+open class _TextRow : Eureka.FieldRow<Eureka.TextCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _IntRow : Eureka.FieldRow<Eureka.IntCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _PhoneRow : Eureka.FieldRow<Eureka.PhoneCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _NameRow : Eureka.FieldRow<Eureka.NameCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _EmailRow : Eureka.FieldRow<Eureka.EmailCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _PasswordRow : Eureka.FieldRow<Eureka.PasswordCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _DecimalRow : Eureka.FieldRow<Eureka.DecimalCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _URLRow : Eureka.FieldRow<Eureka.URLCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _TwitterRow : Eureka.FieldRow<Eureka.TwitterCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _AccountRow : Eureka.FieldRow<Eureka.AccountCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _ZipCodeRow : Eureka.FieldRow<Eureka.ZipCodeCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TextRow : Eureka._TextRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class NameRow : Eureka._NameRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PasswordRow : Eureka._PasswordRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class EmailRow : Eureka._EmailRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TwitterRow : Eureka._TwitterRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class AccountRow : Eureka._AccountRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class ZipCodeRow : Eureka._ZipCodeRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class IntRow : Eureka._IntRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DecimalRow : Eureka._DecimalRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class URLRow : Eureka._URLRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class PhoneRow : Eureka._PhoneRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+extension UIView {
+  public func findFirstResponder() -> UIKit.UIView?
+  public func formCell() -> Eureka.BaseCell?
+}
+public struct RuleURL : Eureka.RuleType {
+  public init(allowsEmpty: Swift.Bool = true, requiresProtocol: Swift.Bool = false, msg: Swift.String = "Field value must be an URL!", id: Swift.String? = nil)
+  public var id: Swift.String?
+  public var allowsEmpty: Swift.Bool
+  public var requiresProtocol: Swift.Bool
+  public var validationError: Eureka.ValidationError
+  public func isValid(value: Foundation.URL?) -> Eureka.ValidationError?
+  public typealias RowValueType = Foundation.URL
+}
+public protocol KeyboardReturnHandler : Eureka.BaseRowType {
+  var keyboardReturnType: Eureka.KeyboardReturnTypeConfiguration? { get set }
+}
+public protocol Taggable : AnyObject {
+  var tag: Swift.String? { get set }
+}
+public protocol BaseRowType : Eureka.Taggable {
+  var baseCell: Eureka.BaseCell! { get }
+  var section: Eureka.Section? { get }
+  var cellStyle: UIKit.UITableViewCell.CellStyle { get set }
+  var title: Swift.String? { get set }
+  func updateCell()
+  func didSelect()
+  func validate(quietly: Swift.Bool) -> [Eureka.ValidationError]
+}
+public protocol TypedRowType : Eureka.BaseRowType {
+  associatedtype Cell : Eureka.BaseCell, Eureka.TypedCellType
+  var cell: Self.Cell! { get }
+  var value: Self.Cell.Value? { get set }
+  func add<Rule>(rule: Rule) where Rule : Eureka.RuleType, Rule.RowValueType == Self.Cell.Value
+  func remove(ruleWithIdentifier: Swift.String)
+}
+public protocol RowType : Eureka.TypedRowType {
+  init(_ tag: Swift.String?, _ initializer: (Self) -> Swift.Void)
+}
+extension RowType where Self : Eureka.BaseRow {
+  public init(_ tag: Swift.String? = nil, _ initializer: (Self) -> Swift.Void = { _ in })
+}
+extension RowType where Self : Eureka.BaseRow {
+  public static var defaultCellUpdate: ((Self.Cell, Self) -> Swift.Void)? {
+    get
+    set
+  }
+  public static var defaultCellSetup: ((Self.Cell, Self) -> Swift.Void)? {
+    get
+    set
+  }
+  public static var defaultOnCellHighlightChanged: ((Self.Cell, Self) -> Swift.Void)? {
+    get
+    set
+  }
+  public static var defaultRowInitializer: ((Self) -> Swift.Void)? {
+    get
+    set
+  }
+  public static var defaultOnRowValidationChanged: ((Self.Cell, Self) -> Swift.Void)? {
+    get
+    set
+  }
+  @discardableResult
+  public func onChange(_ callback: @escaping (Self) -> Swift.Void) -> Self
+  @discardableResult
+  public func cellUpdate(_ callback: @escaping ((Self.Cell, Self) -> Swift.Void)) -> Self
+  @discardableResult
+  public func cellSetup(_ callback: @escaping ((Self.Cell, Self) -> Swift.Void)) -> Self
+  @discardableResult
+  public func onCellSelection(_ callback: @escaping ((Self.Cell, Self) -> Swift.Void)) -> Self
+  @discardableResult
+  public func onCellHighlightChanged(_ callback: @escaping (Self.Cell, Self) -> Swift.Void) -> Self
+  @discardableResult
+  public func onRowValidationChanged(_ callback: @escaping (Self.Cell, Self) -> Swift.Void) -> Self
+}
+public enum RegExprPattern : Swift.String {
+  case EmailAddress
+  case URL
+  case ContainsNumber
+  case ContainsCapital
+  case ContainsLowercase
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+open class RuleRegExp : Eureka.RuleType {
+  public var regExpr: Swift.String
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public var allowsEmpty: Swift.Bool
+  public init(regExpr: Swift.String, allowsEmpty: Swift.Bool = true, msg: Swift.String = "Invalid field value!", id: Swift.String? = nil)
+  public func isValid(value: Swift.String?) -> Eureka.ValidationError?
+  @objc deinit
+  public typealias RowValueType = Swift.String
+}
+@_staticInitializeObjCMetadata
+open class DateInlineCell : Eureka.Cell<Foundation.Date>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  override open func update()
+  override open func didSelect()
+  @objc deinit
+}
+open class _DateInlineFieldRow : Eureka.Row<Eureka.DateInlineCell>, Eureka.DatePickerRowProtocol, Eureka.NoValueDisplayTextConformance {
+  open var minimumDate: Foundation.Date?
+  open var maximumDate: Foundation.Date?
+  open var minuteInterval: Swift.Int?
+  open var dateFormatter: Foundation.DateFormatter?
+  open var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public protocol NavigationAccessory {
+  var doneClosure: (() -> ())? { get set }
+  var nextClosure: (() -> ())? { get set }
+  var previousClosure: (() -> ())? { get set }
+  var previousEnabled: Swift.Bool { get set }
+  var nextEnabled: Swift.Bool { get set }
+}
+@objc open class NavigationAccessoryView : UIKit.UIToolbar, Eureka.NavigationAccessory {
+  open var previousButton: UIKit.UIBarButtonItem!
+  open var nextButton: UIKit.UIBarButtonItem!
+  open var doneButton: UIKit.UIBarButtonItem
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  public var doneClosure: (() -> ())?
+  public var nextClosure: (() -> ())?
+  public var previousClosure: (() -> ())?
+  public var previousEnabled: Swift.Bool {
+    get
+    set
+  }
+  public var nextEnabled: Swift.Bool {
+    get
+    set
+  }
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class StepperCell : Eureka.Cell<Swift.Double>, Eureka.CellType {
+  @objc @IBOutlet weak open var stepper: UIKit.UIStepper!
+  @objc @IBOutlet weak open var valueLabel: UIKit.UILabel!
+  @objc @IBOutlet weak open var titleLabel: UIKit.UILabel!
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  open func setupValueLabel()
+  override open func update()
+  @objc deinit
+  @objc override dynamic open func updateConstraints()
+  open var dynamicConstraints: [UIKit.NSLayoutConstraint]
+  open func customConstraints()
+}
+open class _StepperRow : Eureka.Row<Eureka.StepperCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class StepperRow : Eureka._StepperRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class AlertOptionsRow<Cell> : Eureka.OptionsRow<Cell>, Eureka.AlertOptionsProviderRow where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  open var cancelTitle: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _DateInlineRow : Eureka._DateInlineFieldRow {
+  public typealias InlineRow = Eureka.DatePickerRow
+  required public init(tag: Swift.String?)
+  open func setupInlineRow(_ inlineRow: Eureka.DatePickerRow)
+  @objc deinit
+}
+open class _TimeInlineRow : Eureka._DateInlineFieldRow {
+  public typealias InlineRow = Eureka.TimePickerRow
+  required public init(tag: Swift.String?)
+  open func setupInlineRow(_ inlineRow: Eureka.TimePickerRow)
+  @objc deinit
+}
+open class _DateTimeInlineRow : Eureka._DateInlineFieldRow {
+  public typealias InlineRow = Eureka.DateTimePickerRow
+  required public init(tag: Swift.String?)
+  open func setupInlineRow(_ inlineRow: Eureka.DateTimePickerRow)
+  @objc deinit
+}
+open class _CountDownInlineRow : Eureka._DateInlineFieldRow {
+  public typealias InlineRow = Eureka.CountDownPickerRow
+  required public init(tag: Swift.String?)
+  public func setupInlineRow(_ inlineRow: Eureka.CountDownPickerRow)
+  @objc deinit
+}
+final public class DateInlineRow_<T> : Eureka._DateInlineRow, Eureka.RowType, Eureka.InlineRowType {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  @objc deinit
+}
+public typealias DateInlineRow = Eureka.DateInlineRow_<Foundation.Date>
+final public class DateTimeInlineRow_<T> : Eureka._DateTimeInlineRow, Eureka.RowType, Eureka.InlineRowType {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  @objc deinit
+}
+public typealias DateTimeInlineRow = Eureka.DateTimeInlineRow_<Foundation.Date>
+final public class TimeInlineRow_<T> : Eureka._TimeInlineRow, Eureka.RowType, Eureka.InlineRowType {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  @objc deinit
+}
+public typealias TimeInlineRow = Eureka.TimeInlineRow_<Foundation.Date>
+final public class CountDownInlineRow_<T> : Eureka._CountDownInlineRow, Eureka.RowType, Eureka.InlineRowType {
+  required public init(tag: Swift.String?)
+  override final public func customDidSelect()
+  @objc deinit
+}
+public typealias CountDownInlineRow = Eureka.CountDownInlineRow_<Foundation.Date>
+open class _ButtonRowWithPresent<VCType> : Eureka.Row<Eureka.ButtonCellOf<VCType.RowValue>>, Eureka.PresenterRowType where VCType : UIKit.UIViewController, VCType : Eureka.TypedRowControllerType {
+  open var presentationMode: Eureka.PresentationMode<VCType>?
+  open var onPresentCallback: ((Eureka.FormViewController, VCType) -> Swift.Void)?
+  required public init(tag: Swift.String?)
+  override open func customUpdateCell()
+  override open func customDidSelect()
+  override open func prepare(for segue: UIKit.UIStoryboardSegue)
+  @objc deinit
+  public typealias PresentedControllerType = VCType
+}
+final public class ButtonRowWithPresent<VCType> : Eureka._ButtonRowWithPresent<VCType>, Eureka.RowType where VCType : UIKit.UIViewController, VCType : Eureka.TypedRowControllerType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public typealias SwipeActionHandler = (Eureka.SwipeAction, Eureka.BaseRow, ((Swift.Bool) -> Swift.Void)?) -> Swift.Void
+public class SwipeAction {
+  public var actionBackgroundColor: UIKit.UIColor?
+  public var image: UIKit.UIImage?
+  public var title: Swift.String?
+  @available(*, deprecated, message: "Use actionBackgroundColor instead")
+  public var backgroundColor: UIKit.UIColor? {
+    get
+    set
+  }
+  public init(style: Eureka.SwipeAction.Style, title: Swift.String?, handler: @escaping Eureka.SwipeActionHandler)
+  public enum Style {
+    case normal
+    case destructive
+    public static func == (a: Eureka.SwipeAction.Style, b: Eureka.SwipeAction.Style) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  @objc deinit
+}
+public struct SwipeConfiguration {
+  public var performsFirstActionWithFullSwipe: Swift.Bool
+  public var actions: [Eureka.SwipeAction]
+}
+extension UITableViewRowAction {
+  public var image: UIKit.UIImage? {
+    get
+    set
+  }
+  public var actionBackgroundColor: UIKit.UIColor? {
+    get
+    set
+  }
+}
+@available(iOS 11.0, *)
+extension UIContextualAction {
+  public var actionBackgroundColor: UIKit.UIColor? {
+    get
+    set
+  }
+}
+public protocol ContextualStyle {
+}
+extension UITableViewRowAction.Style : Eureka.ContextualStyle {
+}
+@available(iOS 11.0, *)
+extension UIContextualAction.Style : Eureka.ContextualStyle {
+}
+public protocol TypedRowControllerType : Eureka.RowControllerType {
+  associatedtype RowValue : Swift.Equatable
+  var row: Eureka.RowOf<Self.RowValue>! { get set }
+}
+public protocol HeaderFooterViewRepresentable {
+  func viewForSection(_ section: Eureka.Section, type: Eureka.HeaderFooterType) -> UIKit.UIView?
+  var title: Swift.String? { get set }
+  var height: (() -> CoreGraphics.CGFloat)? { get set }
+}
+@_staticInitializeObjCMetadata
+open class CheckCell : Eureka.Cell<Swift.Bool>, Eureka.CellType {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  override open func setup()
+  override open func didSelect()
+  @objc deinit
+}
+open class _CheckRow : Eureka.Row<Eureka.CheckCell> {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class CheckRow : Eureka._CheckRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public enum HeaderFooterProvider<ViewType> where ViewType : UIKit.UIView {
+  case `class`
+  case callback(() -> ViewType)
+  case nibFile(name: Swift.String, bundle: Foundation.Bundle?)
+}
+public enum HeaderFooterType {
+  case header, footer
+  public static func == (a: Eureka.HeaderFooterType, b: Eureka.HeaderFooterType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct HeaderFooterView<ViewType> : Swift.ExpressibleByStringLiteral, Eureka.HeaderFooterViewRepresentable where ViewType : UIKit.UIView {
+  public var title: Swift.String?
+  public var viewProvider: Eureka.HeaderFooterProvider<ViewType>?
+  public var onSetupView: ((ViewType, Eureka.Section) -> Swift.Void)?
+  public var height: (() -> CoreGraphics.CGFloat)?
+  public func viewForSection(_ section: Eureka.Section, type: Eureka.HeaderFooterType) -> UIKit.UIView?
+  public init?(title: Swift.String?)
+  public init(_ provider: Eureka.HeaderFooterProvider<ViewType>)
+  public init(unicodeScalarLiteral value: Swift.String)
+  public init(extendedGraphemeClusterLiteral value: Swift.String)
+  public init(stringLiteral value: Swift.String)
+  public typealias StringLiteralType = Swift.String
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  public typealias UnicodeScalarLiteralType = Swift.String
+}
+open class PushSelectorCell<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc deinit
+}
+open class SelectorRow<Cell> : Eureka.OptionsRow<Cell>, Eureka.PresenterRowType where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  open var presentationMode: Eureka.PresentationMode<Eureka.SelectorViewController<Eureka.SelectorRow<Cell>>>?
+  open var onPresentCallback: ((Eureka.FormViewController, Eureka.SelectorViewController<Eureka.SelectorRow<Cell>>) -> Swift.Void)?
+  required public init(tag: Swift.String?)
+  override open func customDidSelect()
+  override open func prepare(for segue: UIKit.UIStoryboardSegue)
+  public typealias PresentedControllerType = Eureka.SelectorViewController<Eureka.SelectorRow<Cell>>
+  @objc deinit
+}
+public struct RuleGreaterThan<T> : Eureka.RuleType where T : Swift.Comparable {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(min: T, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+public struct RuleGreaterOrEqualThan<T> : Eureka.RuleType where T : Swift.Comparable {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(min: T, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+public struct RuleSmallerThan<T> : Eureka.RuleType where T : Swift.Comparable {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(max: T, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+public struct RuleSmallerOrEqualThan<T> : Eureka.RuleType where T : Swift.Comparable {
+  public var id: Swift.String?
+  public var validationError: Eureka.ValidationError
+  public init(max: T, msg: Swift.String? = nil, id: Swift.String? = nil)
+  public func isValid(value: T?) -> Eureka.ValidationError?
+  public typealias RowValueType = T
+}
+open class ListCheckCell<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  override open func setup()
+  override open func didSelect()
+  @objc deinit
+}
+final public class ListCheckRow<T> : Eureka.Row<Eureka.ListCheckCell<T>>, Eureka.SelectableRowType, Eureka.RowType where T : Swift.Equatable {
+  final public var selectableValue: T?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+@_staticInitializeObjCMetadata
+open class SliderCell : Eureka.Cell<Swift.Float>, Eureka.CellType {
+  @objc @IBOutlet weak open var titleLabel: UIKit.UILabel!
+  @objc @IBOutlet weak open var valueLabel: UIKit.UILabel!
+  @objc @IBOutlet weak open var slider: UIKit.UISlider!
+  open var formatter: Foundation.NumberFormatter?
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc deinit
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  override open func update()
+  @objc override dynamic open func updateConstraints()
+  open var dynamicConstraints: [UIKit.NSLayoutConstraint]
+  open func customConstraints()
+}
+final public class SliderRow : Eureka.Row<Eureka.SliderCell>, Eureka.RowType {
+  final public var steps: Swift.UInt
+  final public var shouldHideValue: Swift.Bool
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class OptionsRow<Cell> : Eureka.Row<Cell>, Eureka.NoValueDisplayTextConformance, Eureka.OptionsProviderRow where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  open var optionsProvider: Eureka.OptionsProvider<Cell.Value>?
+  open var selectorTitle: Swift.String?
+  open var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  public typealias OptionsProviderType = Eureka.OptionsProvider<Cell.Value>
+  @objc deinit
+}
+open class ButtonCellOf<T> : Eureka.Cell<T>, Eureka.CellType where T : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  override open func didSelect()
+  @objc deinit
+}
+public typealias ButtonCell = Eureka.ButtonCellOf<Swift.String>
+open class _ButtonRowOf<T> : Eureka.Row<Eureka.ButtonCellOf<T>> where T : Swift.Equatable {
+  open var presentationMode: Eureka.PresentationMode<UIKit.UIViewController>?
+  required public init(tag: Swift.String?)
+  override open func customDidSelect()
+  override open func customUpdateCell()
+  override open func prepare(for segue: UIKit.UIStoryboardSegue)
+  @objc deinit
+}
+final public class ButtonRowOf<T> : Eureka._ButtonRowOf<T>, Eureka.RowType where T : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+public typealias ButtonRow = Eureka.ButtonRowOf<Swift.String>
+public enum SelectionType {
+  case multipleSelection
+  case singleSelection(enableDeselection: Swift.Bool)
+}
+public protocol SelectableSectionType : Swift.Collection {
+  associatedtype SelectableRow : Eureka.BaseRow, Eureka.SelectableRowType
+  var selectionType: Eureka.SelectionType { get set }
+  var onSelectSelectableRow: ((Self.SelectableRow.Cell, Self.SelectableRow) -> Swift.Void)? { get set }
+  func selectedRow() -> Self.SelectableRow?
+  func selectedRows() -> [Self.SelectableRow]
+}
+extension SelectableSectionType where Self : Eureka.Section {
+  public func selectedRow() -> Self.SelectableRow?
+  public func selectedRows() -> [Self.SelectableRow]
+}
+open class SelectableSection<Row> : Eureka.Section, Eureka.SelectableSectionType where Row : Eureka.BaseRow, Row : Eureka.SelectableRowType {
+  public typealias SelectableRow = Row
+  public var selectionType: Eureka.SelectionType
+  public var onSelectSelectableRow: ((Row.Cell, Row) -> Swift.Void)?
+  override public init(_ initializer: @escaping (Eureka.SelectableSection<Row>) -> Swift.Void)
+  public init(_ header: Swift.String, selectionType: Eureka.SelectionType, _ initializer: @escaping (Eureka.SelectableSection<Row>) -> Swift.Void = { _ in })
+  public init(header: Swift.String, footer: Swift.String, selectionType: Eureka.SelectionType, _ initializer: @escaping (Eureka.SelectableSection<Row>) -> Swift.Void = { _ in })
+  required public init()
+  required public init<S>(_ elements: S) where S : Swift.Sequence, S.Element == Eureka.BaseRow
+  override open func rowsHaveBeenAdded(_ rows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  override public init(_ header: Swift.String, _ initializer: @escaping (Eureka.Section) -> Swift.Void = super)
+  override public init(header: Swift.String, footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = super)
+  override public init(footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = super)
+  @objc deinit
+}
+public protocol BaseInlineRowType {
+  func expandInlineRow()
+  func collapseInlineRow()
+  func toggleInlineRow()
+}
+public protocol InlineRowType : Eureka.BaseInlineRowType, Eureka.TypedRowType {
+  associatedtype InlineRow : Eureka.BaseRow, Eureka.RowType
+  func setupInlineRow(_ inlineRow: Self.InlineRow)
+}
+extension InlineRowType where Self : Eureka.BaseRow, Self.Cell.Value == Self.InlineRow.Cell.Value {
+  public var inlineRow: Self.InlineRow? {
+    get
+  }
+  public func expandInlineRow()
+  public func collapseInlineRow()
+  public func toggleInlineRow()
+  @discardableResult
+  public func onExpandInlineRow(_ callback: @escaping (Self.Cell, Self, Self.InlineRow) -> Swift.Void) -> Self
+  @discardableResult
+  public func onCollapseInlineRow(_ callback: @escaping (Self.Cell, Self, Self.InlineRow) -> Swift.Void) -> Self
+  public var onCollapseInlineRowCallback: ((Self.Cell, Self, Self.InlineRow) -> Swift.Void)? {
+    get
+  }
+  public var onExpandInlineRowCallback: ((Self.Cell, Self, Self.InlineRow) -> Swift.Void)? {
+    get
+  }
+  public var isExpanded: Swift.Bool {
+    get
+  }
+  public var isCollapsed: Swift.Bool {
+    get
+  }
+}
+public class RuleEmail : Eureka.RuleRegExp {
+  public init(msg: Swift.String = "Field value should be a valid email!", id: Swift.String? = nil)
+  override public init(regExpr: Swift.String, allowsEmpty: Swift.Bool = super, msg: Swift.String = super, id: Swift.String? = super)
+  @objc deinit
+}
+public struct Tuple3<A, B, C> where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  public let a: A
+  public let b: B
+  public let c: C
+  public init(a: A, b: B, c: C)
+}
+extension Tuple3 : Swift.Equatable {
+}
+public func == <A, B, C>(lhs: Eureka.Tuple3<A, B, C>, rhs: Eureka.Tuple3<A, B, C>) -> Swift.Bool where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable
+open class TriplePickerCell<A, B, C> : Eureka._PickerCell<Eureka.Tuple3<A, B, C>> where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc override open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc deinit
+}
+open class _TriplePickerRow<A, B, C> : Eureka.Row<Eureka.TriplePickerCell<A, B, C>> where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var thirdOptions: ((A, B) -> [C])
+  public var displayValueForFirstRow: ((A) -> (Swift.String))
+  public var displayValueForSecondRow: ((B) -> (Swift.String))
+  public var displayValueForThirdRow: ((C) -> (Swift.String))
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TriplePickerRow<A, B, C> : Eureka._TriplePickerRow<A, B, C>, Eureka.RowType where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+precedencegroup FormPrecedence {
+  associativity: left
+  higherThan: LogicalConjunctionPrecedence
+}
+precedencegroup SectionPrecedence {
+  associativity: left
+  higherThan: FormPrecedence
+}
+infix operator +++ : FormPrecedence
+@discardableResult
+public func +++ (left: Eureka.Form, right: Eureka.Section) -> Eureka.Form
+@discardableResult
+public func +++ (left: Eureka.Form, right: Eureka.BaseRow) -> Eureka.Form
+@discardableResult
+public func +++ (left: Eureka.Section, right: Eureka.Section) -> Eureka.Form
+@discardableResult
+public func +++ (left: Eureka.Section, right: Eureka.BaseRow) -> Eureka.Form
+@discardableResult
+public func +++ (left: Eureka.BaseRow, right: Eureka.BaseRow) -> Eureka.Form
+infix operator <<< : SectionPrecedence
+@discardableResult
+public func <<< (left: Eureka.Section, right: Eureka.BaseRow) -> Eureka.Section
+@discardableResult
+public func <<< (left: Eureka.BaseRow, right: Eureka.BaseRow) -> Eureka.Section
+public func += <C>(lhs: inout Eureka.Section, rhs: C) where C : Swift.Collection, C.Element == Eureka.BaseRow
+public func += <C>(lhs: inout Eureka.Form, rhs: C) where C : Swift.Collection, C.Element == Eureka.Section
+public protocol FormatterConformance : AnyObject {
+  var formatter: Foundation.Formatter? { get set }
+  var useFormatterDuringInput: Swift.Bool { get set }
+  var useFormatterOnDidBeginEditing: Swift.Bool? { get set }
+}
+public protocol NoValueDisplayTextConformance : AnyObject {
+  var noValueDisplayText: Swift.String? { get set }
+}
+public protocol SectionDelegate : AnyObject {
+  func rowsHaveBeenAdded(_ rows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  func rowsHaveBeenRemoved(_ rows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  func rowsHaveBeenReplaced(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow], at: Foundation.IndexSet)
+}
+extension Section : Swift.Equatable {
+}
+public func == (lhs: Eureka.Section, rhs: Eureka.Section) -> Swift.Bool
+extension Section : Eureka.SectionDelegate {
+}
+extension Section {
+  public func reload(with rowAnimation: UIKit.UITableView.RowAnimation = .none)
+}
+extension Section {
+  public func rowBy<Row>(tag: Swift.String) -> Row? where Row : Eureka.RowType
+}
+open class Section {
+  public var tag: Swift.String?
+  weak public var form: Eureka.Form? {
+    get
+    }
+  public var header: Eureka.HeaderFooterViewRepresentable? {
+    get
+    set
+  }
+  public var footer: Eureka.HeaderFooterViewRepresentable? {
+    get
+    set
+  }
+  public var index: Swift.Int? {
+    get
+  }
+  public var hidden: Eureka.Condition? {
+    get
+    set
+  }
+  public var isHidden: Swift.Bool {
+    get
+  }
+  public var allRows: [Eureka.BaseRow] {
+    get
+  }
+  required public init()
+  required public init<S>(_ elements: S) where S : Swift.Sequence, S.Element == Eureka.BaseRow
+  public init(_ initializer: @escaping (Eureka.Section) -> Swift.Void)
+  public init(_ header: Swift.String, _ initializer: @escaping (Eureka.Section) -> Swift.Void = { _ in })
+  public init(header: Swift.String, footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = { _ in })
+  public init(footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = { _ in })
+  open func rowsHaveBeenAdded(_ rows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  open func rowsHaveBeenRemoved(_ rows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  open func rowsHaveBeenReplaced(oldRows: [Eureka.BaseRow], newRows: [Eureka.BaseRow], at: Foundation.IndexSet)
+  @objc deinit
+}
+extension Section : Swift.MutableCollection, Swift.BidirectionalCollection {
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public subscript(position: Swift.Int) -> Eureka.BaseRow {
+    get
+    set
+  }
+  public subscript(range: Swift.Range<Swift.Int>) -> Swift.ArraySlice<Eureka.BaseRow> {
+    get
+    set
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public func index(before i: Swift.Int) -> Swift.Int
+  public typealias Element = Eureka.BaseRow
+  public typealias Index = Swift.Int
+  public typealias Iterator = Swift.IndexingIterator<Eureka.Section>
+  public typealias SubSequence = Swift.ArraySlice<Eureka.BaseRow>
+  public typealias Indices = Swift.DefaultIndices<Eureka.Section>
+}
+extension Section : Swift.RangeReplaceableCollection {
+  public func append(_ formRow: Eureka.BaseRow)
+  public func append<S>(contentsOf newElements: S) where S : Swift.Sequence, S.Element == Eureka.BaseRow
+  public func replaceSubrange<C>(_ subrange: Swift.Range<Swift.Int>, with newElements: C) where C : Swift.Collection, C.Element == Eureka.BaseRow
+  public func removeAll(keepingCapacity keepCapacity: Swift.Bool = false)
+  @discardableResult
+  public func remove(at position: Swift.Int) -> Eureka.BaseRow
+}
+extension Section {
+  final public func evaluateHidden()
+}
+extension Section {
+  public func insert(row newRow: Eureka.BaseRow, after previousRow: Eureka.BaseRow) throws
+}
+public struct MultivaluedOptions : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let None: Eureka.MultivaluedOptions
+  public static let Insert: Eureka.MultivaluedOptions
+  public static let Delete: Eureka.MultivaluedOptions
+  public static let Reorder: Eureka.MultivaluedOptions
+  public typealias Element = Eureka.MultivaluedOptions
+  public typealias ArrayLiteralElement = Eureka.MultivaluedOptions
+  public typealias RawValue = Swift.Int
+}
+open class MultivaluedSection : Eureka.Section {
+  public var multivaluedOptions: Eureka.MultivaluedOptions
+  public var showInsertIconInAddButton: Swift.Bool
+  public var addButtonProvider: ((Eureka.MultivaluedSection) -> Eureka.ButtonRow)
+  public var multivaluedRowToInsertAt: ((Swift.Int) -> Eureka.BaseRow)?
+  required public init(multivaluedOptions: Eureka.MultivaluedOptions = MultivaluedOptions.Insert.union(.Delete), header: Swift.String = "", footer: Swift.String = "", _ initializer: (Eureka.MultivaluedSection) -> Swift.Void = { _ in })
+  required public init()
+  required public init<S>(_ elements: S) where S : Swift.Sequence, S.Element == Eureka.BaseRow
+  public func values() -> [Any?]
+  override public init(_ initializer: @escaping (Eureka.Section) -> Swift.Void)
+  override public init(_ header: Swift.String, _ initializer: @escaping (Eureka.Section) -> Swift.Void = super)
+  override public init(header: Swift.String, footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = super)
+  override public init(footer: Swift.String, _ initializer: (Eureka.Section) -> Swift.Void = super)
+  @objc deinit
+}
+open class _DateRow : Eureka._DateFieldRow {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _TimeRow : Eureka._DateFieldRow {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _DateTimeRow : Eureka._DateFieldRow {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class _CountDownRow : Eureka._DateFieldRow {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DateRow : Eureka._DateRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TimeRow : Eureka._TimeRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class DateTimeRow : Eureka._DateTimeRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class CountDownRow : Eureka._CountDownRow, Eureka.RowType {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class BaseRow : Eureka.BaseRowType {
+  public var validationOptions: Eureka.ValidationOptions
+  public var validationErrors: [Eureka.ValidationError] {
+    get
+  }
+  public var wasBlurred: Swift.Bool {
+    get
+    }
+  public var wasChanged: Swift.Bool {
+    get
+    }
+  public var isValid: Swift.Bool {
+    get
+  }
+  public var isHighlighted: Swift.Bool
+  public var title: Swift.String?
+  public var cellStyle: UIKit.UITableViewCell.CellStyle
+  public var tag: Swift.String?
+  public var baseCell: Eureka.BaseCell! {
+    get
+  }
+  public var baseValue: Any? {
+    get
+    set
+  }
+  public func validate(quietly: Swift.Bool = false) -> [Eureka.ValidationError]
+  public static var estimatedRowHeight: CoreGraphics.CGFloat
+  public var disabled: Eureka.Condition? {
+    get
+    set
+  }
+  public var hidden: Eureka.Condition? {
+    get
+    set
+  }
+  public var isDisabled: Swift.Bool {
+    get
+  }
+  public var isHidden: Swift.Bool {
+    get
+  }
+  weak open var section: Eureka.Section?
+  public var trailingSwipe: Eureka.SwipeConfiguration {
+    get
+    set
+  }
+  @available(iOS 11, *)
+  public var leadingSwipe: Eureka.SwipeConfiguration {
+    get
+    set
+  }
+  required public init(tag: Swift.String? = nil)
+  open func updateCell()
+  open func didSelect()
+  open func prepare(for segue: UIKit.UIStoryboardSegue)
+  open var destinationScrollPosition: UIKit.UITableView.ScrollPosition?
+  final public var indexPath: Foundation.IndexPath? {
+    get
+  }
+  @objc deinit
+}
+extension BaseRow {
+  public func cleanValidationErrors()
+}
+extension BaseRow {
+  final public func evaluateHidden()
+  final public func evaluateDisabled()
+}
+extension BaseRow : Swift.Equatable {
+}
+extension BaseRow {
+  public func reload(with rowAnimation: UIKit.UITableView.RowAnimation = .none)
+  public func deselect(animated: Swift.Bool = true)
+  public func select(animated: Swift.Bool = false, scrollPosition: UIKit.UITableView.ScrollPosition = .none)
+}
+public func == (lhs: Eureka.BaseRow, rhs: Eureka.BaseRow) -> Swift.Bool
+open class TriplePickerInputCell<A, B, C> : Eureka._PickerInputCell<Eureka.Tuple3<A, B, C>> where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func update()
+  @objc override open func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc override open func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc deinit
+}
+open class _TriplePickerInputRow<A, B, C> : Eureka.Row<Eureka.TriplePickerInputCell<A, B, C>>, Eureka.NoValueDisplayTextConformance where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  open var noValueDisplayText: Swift.String?
+  public var firstOptions: (() -> [A])
+  public var secondOptions: ((A) -> [B])
+  public var thirdOptions: ((A, B) -> [C])
+  public var displayValueForFirstRow: ((A) -> (Swift.String))
+  public var displayValueForSecondRow: ((B) -> (Swift.String))
+  public var displayValueForThirdRow: ((C) -> (Swift.String))
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+final public class TriplePickerInputRow<A, B, C> : Eureka._TriplePickerInputRow<A, B, C>, Eureka.RowType where A : Swift.Equatable, B : Swift.Equatable, C : Swift.Equatable {
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+open class RowOf<T> : Eureka.BaseRow where T : Swift.Equatable {
+  open var value: T? {
+    get
+    set(newValue)
+  }
+  open var resetValue: T?
+  override public var baseValue: Any? {
+    get
+    set
+  }
+  public var displayValueFor: ((T?) -> Swift.String?)?
+  required public init(tag: Swift.String?)
+  public var rules: [Eureka.ValidationRuleHelper<T>] {
+    get
+    }
+  @discardableResult
+  override public func validate(quietly: Swift.Bool = false) -> [Eureka.ValidationError]
+  public func resetRowValue()
+  public func add<Rule>(rule: Rule) where T == Rule.RowValueType, Rule : Eureka.RuleType
+  public func add(ruleSet: Eureka.RuleSet<T>)
+  public func remove(ruleWithIdentifier identifier: Swift.String)
+  public func removeAllRules()
+  @objc deinit
+}
+open class Row<Cell> : Eureka.RowOf<Cell.Value>, Eureka.TypedRowType where Cell : Eureka.BaseCell, Cell : Eureka.CellType {
+  public var cellProvider: Eureka.CellProvider<Cell>
+  final public let cellType: Cell.Type!
+  public var cell: Cell! {
+    get
+  }
+  override public var baseCell: Eureka.BaseCell {
+    get
+  }
+  required public init(tag: Swift.String?)
+  override open func updateCell()
+  override open func didSelect()
+  open func customDidSelect()
+  open func customUpdateCell()
+  @objc deinit
+}
+open class GenericMultipleSelectorRow<T, Cell> : Eureka.Row<Cell>, Eureka.PresenterRowType, Eureka.NoValueDisplayTextConformance, Eureka.OptionsProviderRow where T : Swift.Hashable, Cell : Eureka.BaseCell, Cell : Eureka.CellType, Cell.Value == Swift.Set<T> {
+  public typealias PresentedController = Eureka.MultipleSelectorViewController<Eureka.GenericMultipleSelectorRow<T, Cell>>
+  open var presentationMode: Eureka.PresentationMode<Eureka.GenericMultipleSelectorRow<T, Cell>.PresentedController>?
+  open var onPresentCallback: ((Eureka.FormViewController, Eureka.GenericMultipleSelectorRow<T, Cell>.PresentedController) -> Swift.Void)?
+  open var selectorTitle: Swift.String?
+  open var noValueDisplayText: Swift.String?
+  open var optionsProvider: Eureka.OptionsProvider<T>?
+  required public init(tag: Swift.String?)
+  override open func customDidSelect()
+  override open func prepare(for segue: UIKit.UIStoryboardSegue)
+  @objc deinit
+  public typealias OptionsProviderType = Eureka.OptionsProvider<T>
+  public typealias PresentedControllerType = Eureka.MultipleSelectorViewController<Eureka.GenericMultipleSelectorRow<T, Cell>>
+}
+open class _MultipleSelectorViewController<Row, OptionsRow> : Eureka.FormViewController, Eureka.TypedRowControllerType where Row : Eureka.BaseRow, Row : Eureka.SelectableRowType, OptionsRow : Eureka.OptionsProviderRow, Row.Cell.Value : Swift.Hashable, Row.Cell.Value == OptionsRow.OptionsProviderType.Option {
+  public var row: Eureka.RowOf<Swift.Set<Row.Cell.Value>>!
+  public var selectableRowSetup: ((Row) -> Swift.Void)?
+  public var selectableRowCellSetup: ((Row.Cell, Row) -> Swift.Void)?
+  public var selectableRowCellUpdate: ((Row.Cell, Row) -> Swift.Void)?
+  public var onDismissCallback: ((UIKit.UIViewController) -> Swift.Void)?
+  public var sectionKeyForValue: ((Row.Cell.Value) -> (Swift.String))?
+  public var sectionHeaderTitleForKey: ((Swift.String) -> Swift.String?)?
+  public var sectionFooterTitleForKey: ((Swift.String) -> Swift.String?)?
+  public var optionsProviderRow: OptionsRow {
+    get
+  }
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  convenience public init(_ callback: ((UIKit.UIViewController) -> Swift.Void)?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  open func setupForm()
+  open func setupForm(with options: [OptionsRow.OptionsProviderType.Option])
+  open func optionsBySections(with options: [OptionsRow.OptionsProviderType.Option]) -> [(Swift.String, [Row.Cell.Value])]?
+  override public init(style: UIKit.UITableView.Style)
+  public typealias RowValue = Swift.Set<Row.Cell.Value>
+  @objc deinit
+}
+open class MultipleSelectorViewController<OptionsRow> : Eureka._MultipleSelectorViewController<Eureka.ListCheckRow<OptionsRow.OptionsProviderType.Option>, OptionsRow> where OptionsRow : Eureka.OptionsProviderRow, OptionsRow.OptionsProviderType.Option : Swift.Hashable {
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String? = nil, bundle nibBundleOrNil: Foundation.Bundle? = nil)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol DatePickerRowProtocol : AnyObject {
+  var minimumDate: Foundation.Date? { get set }
+  var maximumDate: Foundation.Date? { get set }
+  var minuteInterval: Swift.Int? { get set }
+}
+@_staticInitializeObjCMetadata
+open class DateCell : Eureka.Cell<Foundation.Date>, Eureka.CellType {
+  public var datePicker: UIKit.UIDatePicker
+  @objc required dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  override open func setup()
+  @objc deinit
+  override open func update()
+  override open func didSelect()
+  @objc override dynamic open var inputView: UIKit.UIView? {
+    @objc get
+  }
+  override open func cellCanBecomeFirstResponder() -> Swift.Bool
+  @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @objc get
+  }
+}
+open class _DateFieldRow : Eureka.Row<Eureka.DateCell>, Eureka.DatePickerRowProtocol, Eureka.NoValueDisplayTextConformance {
+  open var minimumDate: Foundation.Date?
+  open var maximumDate: Foundation.Date?
+  open var minuteInterval: Swift.Int?
+  open var dateFormatter: Foundation.DateFormatter?
+  open var noValueDisplayText: Swift.String?
+  required public init(tag: Swift.String?)
+  @objc deinit
+}
+extension Eureka.Direction : Swift.Equatable {}
+extension Eureka.Direction : Swift.Hashable {}
+extension Eureka.TextAreaMode : Swift.Equatable {}
+extension Eureka.TextAreaMode : Swift.Hashable {}
+extension Eureka.AreaRow : Eureka.FormatterConformance {}
+extension Eureka.RegExprPattern : Swift.Equatable {}
+extension Eureka.RegExprPattern : Swift.Hashable {}
+extension Eureka.RegExprPattern : Swift.RawRepresentable {}
+extension Eureka.SwipeAction.Style : Swift.Equatable {}
+extension Eureka.SwipeAction.Style : Swift.Hashable {}
+extension Eureka.HeaderFooterType : Swift.Equatable {}
+extension Eureka.HeaderFooterType : Swift.Hashable {}
+extension Eureka.Section : Eureka.Taggable {}
